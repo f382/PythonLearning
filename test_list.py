@@ -1,4 +1,4 @@
-"""Unit tests to characterize python data structures"""
+"""Unit tests to characterize python lists"""
 
 import pytest
 
