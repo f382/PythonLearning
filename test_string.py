@@ -3,14 +3,14 @@
 from datetime import date
 
 
-class TestStrings:
+class TestString:
     """Unit tests to characterize python lists"""
 
     def test_string_literals(self):
         str1 = 'string'
         str2 = "string"
         str3 = ("str"
-             "ing")
+                "ing")
         str4 = """\
 string\
 """

@@ -2,6 +2,7 @@
 
 import pytest
 
+
 class TestList:
     """Unit tests to characterize python lists"""
 
@@ -144,7 +145,8 @@ class TestList:
         assert not all(my_list)
 
     def test_zip(self, my_list: list):
-        assert list(zip(my_list, ['a', 'b', 'c'])) == [(0, 'a'), (1, 'b'), (2, 'c')]
+        assert list(zip(my_list, ['a', 'b', 'c'])) == [
+            (0, 'a'), (1, 'b'), (2, 'c')]
 
     def test_enumerate(self, my_list: list):
         assert list(enumerate(my_list)) == [(0, 0), (1, 1), (2, 2)]
