@@ -57,3 +57,23 @@ string\
 
     def test_length(self):
         assert len("abcdef") == 6
+
+    def test_string_truth(self):
+        assert " "
+        assert not ""
+
+    def test_iterate(self):
+        assert list("0123") == ['0', '1', '2', '3']
+
+    def test_join(self):
+        assert ','.join(['0', '1', '2', '3']) == '0,1,2,3'
+
+    def test_split(self):
+        assert '0,1,2,3'.split(',') == ['0', '1', '2', '3']
+        assert '0 1 2 3'.split() == ['0', '1', '2', '3']
+
+    def test_partition(self):
+        assert '0,1,2,3'.partition(',') == ('0', ',', '1,2,3')
+
+    def test_splitlines(self):
+        assert '0\n1\n2\n3\n'.splitlines() == ['0', '1', '2', '3']
