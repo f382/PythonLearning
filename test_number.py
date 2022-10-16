@@ -29,3 +29,6 @@ class TestNumber:
     def test_number_truth(self):
         assert -0.3j
         assert not 0
+
+    def test_divmod(self):
+        assert divmod(23, -7) == (-4, -5)
