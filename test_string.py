@@ -52,15 +52,21 @@ string\
     def test_string_decode(self):
         assert bytes([65, 66, 67]).decode() == 'ABC'
 
+    def test_from_int(self):
+        assert str(9) == '9'
+
+    def test_to_int(self):
+        assert int('9') == 9
+
     def test_type(self):
         assert isinstance("string", str)
 
+    def test_nonempty(self):
+        assert 'abcdef'
+        assert not ''
+
     def test_length(self):
         assert len("abcdef") == 6
-
-    def test_string_truth(self):
-        assert " "
-        assert not ""
 
     def test_iterate(self):
         assert list("0123") == ['0', '1', '2', '3']
