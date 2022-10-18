@@ -51,6 +51,10 @@ class TestList:
         assert my_list.pop() == 2
         assert my_list == [0, 1]
 
+    def test_pop_i(self, my_list: list):
+        assert my_list.pop(0) == 0
+        assert my_list == [1, 2]
+
     def test_insert(self, my_list: list):
         my_list.insert(1, 0.5)
         assert my_list == [0, 0.5, 1, 2]
@@ -66,6 +70,9 @@ class TestList:
         assert my_list[1:-1] == [1]
         assert my_list[-2:] == [1, 2]
         assert my_list[:2] == [0, 1]
+
+    def test_get_slice_k(self, my_list: list):
+        assert my_list[0:3:2] == [0, 2]
 
     def test_assign_slice(self, my_list: list):
         my_list[1:] = [2, 4]
