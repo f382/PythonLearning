@@ -169,3 +169,12 @@ class TestDataStructures:
     def test_issubset(self, my_set: set):
         assert my_set <= {0, 1, 2, 3}
         assert my_set > {1, 2}
+
+    def test_unpack_generator(self):
+        assert (-1, *(i for i in range(10) if i < 3)) == (-1, 0, 1, 2)
+
+    def test_unpack_assignmen(self):
+        first, *middle, last = (-1, 0, 1, 2)
+        assert first == -1
+        assert middle == [0, 1]
+        assert last == 2
