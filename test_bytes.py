@@ -1,5 +1,7 @@
 """Unit tests to characterize python bytes and bytearrays"""
 
+import struct
+
 
 class TestBytes:
     """Unit tests to characterize python bytes and bytearrays"""
@@ -20,3 +22,11 @@ class TestBytes:
     def test_bytearray_hex(self):
         assert bytearray.fromhex('7fff') == bytearray(b'\x7F\xFF')
         assert bytearray(b'\x7F\xFF').hex() == '7fff'
+
+    def test_pack(self):
+        assert struct.pack('<xc1b?lL4s', b'\xFF', 32, True, -1000, 3000,
+                           b'abcd') == bytes.fromhex('00 FF 20 01 18FCFFFF B80B0000 61626364')
+
+    def test_unpack(self):
+        assert struct.unpack('<xc1b?lL4s', bytes.fromhex('00 FF 20 01 18FCFFFF B80B0000 61626364')) == (
+            b'\xFF', 32, True, -1000, 3000, b'abcd')
