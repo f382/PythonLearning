@@ -5,7 +5,7 @@ from datetime import date
 
 
 class TestString:
-    """Unit tests to characterize python lists"""
+    """Unit tests to characterize python strings"""
 
     def test_string_literals(self):
         str1 = 'string'
@@ -107,6 +107,22 @@ string\
     def test_starts_endswith(self):
         assert 'xyz'.startswith('x')
         assert 'xyz'.endswith('z')
+
+    def test_upper_lower(self):
+        assert 'xyz'.upper() == 'XYZ'
+        assert 'XYZ'.lower() == 'xyz'
+
+    def test_iswhatever(self):
+        assert 'xyz'.isascii()
+        assert 'xyz'.isalpha()
+        assert 'xyz'.isalnum()
+        assert 'xyz'.isidentifier()
+        assert '123'.isdigit()
+        assert '123'.isdecimal()
+        assert '123'.isnumeric()
+        assert 'xyz'.islower()
+        assert 'XYZ'.isupper()
+        assert ' \t\n\v\f\n'.isspace()
 
     def test_indent(self):
         assert textwrap.indent('a\nb\nc\n', '   ') == '   a\n   b\n   c\n'
