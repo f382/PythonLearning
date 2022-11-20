@@ -1,5 +1,6 @@
 """Unit tests to characterize python strings"""
 
+import textwrap
 from datetime import date
 
 
@@ -83,3 +84,32 @@ string\
 
     def test_splitlines(self):
         assert '0\n1\n2\n3\n'.splitlines() == ['0', '1', '2', '3']
+
+    def test_strip(self):
+        assert ' x '.strip() == 'x'
+        assert ' x '.lstrip() == 'x '
+        assert ' x '.rstrip() == ' x'
+
+    def test_count(self):
+        assert 'xxx'.count('x') == 3
+
+    def test_find(self):
+        assert 'xxx'.find('x') == 0
+        assert 'xxx'.rfind('x') == 2
+
+    def test_replace(self):
+        assert 'xxx'.replace('x', 'y') == 'yyy'
+
+    def test_removeprefix_suffix(self):
+        assert 'xyz'.removeprefix('x') == 'yz'
+        assert 'xyz'.removesuffix('z') == 'xy'
+
+    def test_starts_endswith(self):
+        assert 'xyz'.startswith('x')
+        assert 'xyz'.endswith('z')
+
+    def test_indent(self):
+        assert textwrap.indent('a\nb\nc\n', '   ') == '   a\n   b\n   c\n'
+
+    def test_dedent(self):
+        assert textwrap.dedent('   a\n   b\n   c\n') == 'a\nb\nc\n'
