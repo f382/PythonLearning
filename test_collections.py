@@ -1,5 +1,6 @@
 """Unit tests to characterize python collections"""
-from collections import ChainMap, Counter
+from collections import ChainMap, Counter, defaultdict
+import heapq
 
 
 class TestCollections:
@@ -27,3 +28,20 @@ class TestCollections:
         counter.update({'y': 1})
         counter['z'] = -1
         assert +counter == Counter(['x', 'y', 'y'])
+
+    def test_defaultdict(self):
+        list_dict = defaultdict(list)
+        assert list_dict['x'] == []
+        list_dict['y'].append(0)
+        assert list_dict['y'] == [0]
+
+    def test_heapq(self):
+        heapq.heapify(heap := [])
+        heapq.heappush(heap, 2)
+        heapq.heappush(heap, 1)
+        assert heapq.heappushpop(heap, 3) == 1
+        assert heapq.heapreplace(heap, 0) == 2
+        assert heapq.heappop(heap) == 0
+        assert heap == [3]
+        assert list(heapq.merge(heap, [1])) == [1, 3]
+        assert heapq.nsmallest(1, heap) == [3]
