@@ -1,6 +1,7 @@
 """Unit tests to characterize python collections"""
 from collections import ChainMap, Counter, defaultdict
 import heapq
+import copy
 
 
 class TestCollections:
@@ -45,3 +46,11 @@ class TestCollections:
         assert heap == [3]
         assert list(heapq.merge(heap, [1])) == [1, 3]
         assert heapq.nsmallest(1, heap) == [3]
+
+    def test_copy(self):
+        my_list = [0, 1, 2]
+        assert copy.copy(my_list) == my_list.copy() == my_list[:] == my_list
+
+    def test_deepcopy(self):
+        my_list = [0, 1, 2]
+        assert copy.deepcopy(my_list) == my_list
